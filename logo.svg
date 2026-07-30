@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 120" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Mentor Baooji</title>
+
+  <!-- Monogram mark -->
+  <g>
+    <rect x="8" y="16" width="10" height="68" fill="#8A6F3E"/>
+    <rect x="18" y="16" width="28" height="10" fill="#1C1B19"/>
+    <rect x="18" y="45" width="24" height="10" fill="#1C1B19"/>
+    <rect x="18" y="74" width="28" height="10" fill="#1C1B19"/>
+    <rect x="36" y="26" width="10" height="19" fill="#1C1B19"/>
+    <rect x="36" y="55" width="10" height="19" fill="#1C1B19"/>
+  </g>
+
+  <!-- Divider rule between mark and wordmark -->
+  <rect x="76" y="20" width="1.5" height="60" fill="#DDD6C8"/>
+
+  <!-- Wordmark -->
+  <text x="100" y="63"
+        font-family="Newsreader, 'Iowan Old Style', 'Palatino Linotype', serif"
+        font-size="46"
+        font-weight="500"
+        fill="#1C1B19">Baooji</text>
+
+  <!-- Tagline -->
+  <text x="101" y="84"
+        font-family="Inter, -apple-system, 'Segoe UI', sans-serif"
+        font-size="12"
+        font-weight="600"
+        letter-spacing="2.6"
+        fill="#8A6F3E">MENTOR</text>
+</svg>

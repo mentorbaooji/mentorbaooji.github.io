@@ -1,0 +1,100 @@
+/* ==========================================================================
+   MENTOR BAOOJI — DESIGN TOKENS
+   Single source of truth for the entire design system.
+   Every other CSS file reads from these custom properties only —
+   no hard-coded colors, sizes, or fonts anywhere else in the codebase.
+   ========================================================================== */
+
+:root {
+
+  /* ---------- COLOR: BASE ----------
+     Warm, muted, quiet-luxury palette. Deliberately avoids the common
+     AI-generated defaults (cream #F4F1EA + terracotta #D97757). */
+  --color-bg: #F6F3EE;            /* warm parchment — primary background */
+  --color-bg-alt: #EFEAE1;        /* slightly deeper warm neutral — alternating sections */
+  --color-surface: #FFFFFF;       /* rare — only for elevated cards/forms if ever needed */
+
+  --color-ink: #1C1B19;           /* warm near-black — headings, primary text */
+  --color-ink-soft: #4A473F;      /* muted body text */
+  --color-ink-faint: #8B8579;     /* captions, meta text, timestamps */
+
+  --color-accent: #8A6F3E;        /* burnished brass — the brand's signature accent */
+  --color-accent-deep: #5C4A2A;   /* hover / active / pressed states */
+  --color-accent-soft: #E4DCC8;   /* faint accent backgrounds, focus halos */
+
+  --color-border: #DDD6C8;        /* hairline rules and dividers */
+  --color-border-strong: #C9C0AC; /* slightly stronger rule, used sparingly */
+
+  /* ---------- COLOR: FUNCTIONAL ---------- */
+  --color-focus-ring: #5C4A2A;    /* visible keyboard focus outline */
+  --color-overlay: rgba(28, 27, 25, 0.55); /* mobile nav / modal scrims */
+
+  /* ---------- TYPOGRAPHY: FAMILIES ---------- */
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* ---------- TYPOGRAPHY: SCALE ----------
+     Fluid type scale using clamp() so it responds smoothly across
+     viewport sizes without separate breakpoint overrides. */
+  --font-size-xs:   clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --font-size-sm:   clamp(0.875rem, 0.84rem + 0.2vw, 0.9375rem);
+  --font-size-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --font-size-md:   clamp(1.125rem, 1.06rem + 0.35vw, 1.25rem);
+  --font-size-lg:   clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
+  --font-size-xl:   clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem);
+  --font-size-2xl:  clamp(2.25rem, 1.8rem + 2vw, 3.5rem);
+  --font-size-3xl:  clamp(2.75rem, 2.1rem + 3vw, 4.75rem);
+
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.3;
+  --line-height-body: 1.65;
+
+  --letter-spacing-eyebrow: 0.14em;
+  --letter-spacing-tight: -0.01em;
+
+  /* ---------- SPACING SCALE ----------
+     8px base rhythm. Used for all margin/padding/gap values. */
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+  --space-8: 6.5rem;
+  --space-9: 9rem;
+
+  /* ---------- LAYOUT ---------- */
+  --container-max: 1200px;
+  --container-narrow: 760px;
+  --container-padding-inline: clamp(1.25rem, 4vw, 3rem);
+
+  /* ---------- BORDERS / RADIUS ----------
+     Rectangular, hairline-driven — intentionally minimal radius use,
+     consistent with the quiet-luxury, non-templated direction. */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --border-width-hairline: 1px;
+  --border-width-signature: 2px;
+
+  /* ---------- MOTION ---------- */
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 260ms;
+  --duration-slow: 420ms;
+
+  /* ---------- Z-INDEX SCALE ---------- */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-skip-link: 999;
+}
+
+/* Reduced motion: neutralize durations globally, respected by every
+   component that references --duration-* rather than hard-coded values. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

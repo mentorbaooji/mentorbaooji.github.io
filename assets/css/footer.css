@@ -1,0 +1,94 @@
+/* ==========================================================================
+   FOOTER
+   Deliberately restrained — no sitemap dump. A closing gesture, not a
+   utility drawer.
+   ========================================================================== */
+
+.site-footer {
+  border-top: var(--border-width-hairline) solid var(--color-border);
+  background-color: var(--color-bg-alt);
+  padding-block: var(--space-7);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.footer-brand .wordmark {
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand p {
+  max-width: 40ch;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+}
+
+.footer-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-nav a {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer-nav a:hover {
+  color: var(--color-ink);
+}
+
+.footer-cta p {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-3);
+  max-width: 32ch;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+  padding-top: var(--space-4);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-legal a {
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-faint);
+}
+
+.footer-legal a:hover {
+  color: var(--color-ink);
+}
+
+.footer-copyright {
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-faint);
+}
+
+@media (min-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 700px) {
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

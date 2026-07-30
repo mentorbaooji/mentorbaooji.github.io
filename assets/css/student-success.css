@@ -1,0 +1,279 @@
+/* ==========================================================================
+   STUDENT SUCCESS STORIES
+   Reuses existing tokens (variables.css / typography.css / layout.css)
+   for all color, spacing, and type. Shadow/radius/pill values are defined
+   locally in this file only — a deliberate, explicitly-requested exception
+   to the sitewide "no shadows / no radius" rule, scoped so it cannot leak
+   into buttons, nav, or any other component.
+
+   VISUAL-ONLY REVISION — HTML markup and JS are unchanged.
+
+   NOTE: this revision targets the selectors that actually exist in
+   index.html (.student-card-meta / .student-card-meta-item / .is-payment /
+   .student-card-image-link / .student-card-story.stack). The previous
+   version of this file referenced markup that isn't present in the page
+   (.student-card-tagline, .student-card-platform, .student-timeline,
+   .student-card-payment, .student-card-image-trigger, .lightbox-*,
+   .student-success-cta) — those rules never matched anything and have
+   been removed rather than carried forward.
+
+   Payment emphasis (requirement 4) is achieved the same way the previous
+   file achieved its own reordering: CSS `order` only, on the existing
+   <dl class="student-card-meta"> / .student-card-meta-item elements.
+   No HTML changes.
+   ========================================================================== */
+
+.student-success {
+  /* .section (layout.css) provides vertical rhythm already */
+}
+
+/* ---------- Intro block ---------- */
+.student-success-intro {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.student-success-intro .eyebrow {
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.student-success-headline {
+  margin-bottom: var(--space-5);
+}
+
+.student-success-subheading {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-snug);
+  max-width: 48ch;
+  margin-inline: auto;
+}
+
+.student-success-subheading > * + * {
+  margin-top: var(--space-1);
+}
+
+/* ---------- Card grid ---------- */
+.student-success-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .student-success-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8) var(--space-7);
+  }
+}
+
+/* ---------- Card ----------
+   Local-only design tokens: shadow + radius are intentionally NOT added
+   to variables.css, so the rest of the site (buttons, nav, footer)
+   remains untouched by this exception. */
+.student-card {
+  --card-radius: 16px;
+  --card-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+                 0 12px 32px rgba(28, 27, 25, 0.06);
+  --card-shadow-hover: 0 1px 2px rgba(28, 27, 25, 0.05),
+                       0 20px 44px rgba(28, 27, 25, 0.09);
+
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-surface);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.student-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* Desktop split — screenshot column narrowed to ~30%, story column
+   widened to ~70%, so the screenshot supports the story instead of
+   competing with it for attention. Same 900px breakpoint as before. */
+@media (min-width: 900px) {
+  .student-card {
+    grid-template-columns: 30% 70%;
+    /* Shared floor so every card reads as the same size on desktop,
+       independent of which grid row it lands in. Content can still
+       grow taller than this where a story runs long. */
+    min-height: 30rem;
+  }
+}
+
+/* ---------- Media (payment screenshot) ----------
+   Screenshot is never cropped: it sits inside a height-capped, padded
+   frame and keeps its own native aspect ratio via object-fit: contain.
+   The image supports the story, not the reverse. */
+.student-card-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background-color: var(--color-bg-alt);
+}
+
+.student-card-image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.student-card-media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 10px; /* local exception, see file header */
+  border: var(--border-width-hairline) solid var(--color-border);
+  box-shadow: 0 6px 18px rgba(28, 27, 25, 0.08); /* local exception, see file header */
+  transition: opacity var(--duration-base) var(--ease-standard),
+              box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.student-card-image-link:hover img,
+.student-card-image-link:focus-visible img {
+  opacity: 0.94;
+  box-shadow: 0 10px 26px rgba(28, 27, 25, 0.12);
+}
+
+@media (max-width: 899px) {
+  .student-card-media {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .student-card-media img {
+    max-height: 320px;
+  }
+}
+
+/* ---------- Body ---------- */
+.student-card-body {
+  padding: var(--space-7) var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+
+.student-card-name {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Meta list ----------
+   <dl class="student-card-meta"> holds every fact row, including the
+   payment row (marked with .is-payment in the existing markup). It's
+   switched to a flex column here purely so `order` can promote the
+   payment row above the other facts — no HTML change required. */
+.student-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-6);
+}
+
+.student-card-meta-item {
+  order: 2;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+}
+
+.student-card-meta-item dt {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-faint);
+}
+
+.student-card-meta-item dd {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink);
+}
+
+/* ---------- Payment row ----------
+   Requirement 4: the payout amount is the strongest visual element on
+   the card after the student's name. Promoted to the top of the meta
+   list via `order`, and restyled as a distinct callout — not just
+   colored text — so it reads at a glance before anything else on the
+   card. */
+.student-card-meta-item.is-payment {
+  order: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding: var(--space-6) var(--space-6);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 12px; /* local exception, see file header */
+  background-color: var(--color-accent-soft);
+}
+
+.student-card-meta-item.is-payment dt {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-deep);
+}
+
+.student-card-meta-item.is-payment dd {
+  font-family: var(--font-display);
+  /* ~30% larger than the previous var(--font-size-xl), scoped locally
+     via calc() so the shared --font-size-xl token (and anything else
+     using it) is left untouched. */
+  font-size: calc(var(--font-size-xl) * 1.3);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  color: var(--color-accent-deep);
+}
+
+/* ---------- Story ----------
+   Extra breathing room and a slightly larger, softer body type so
+   longer stories stay comfortable to read instead of feeling
+   compressed under the meta list. */
+.student-card-story {
+  font-size: var(--font-size-base);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+  max-width: 62ch;
+}
+
+.student-card-story > * + * {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Responsive ----------
+   Mobile stacking order (image → name → payment → remaining facts →
+   story) is unchanged: media is still the sibling before
+   .student-card-body in the DOM, and the `order` values above apply
+   at every viewport size, not just desktop. */
+@media (max-width: 559px) {
+  .student-card-body {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .student-card-meta-item.is-payment {
+    align-items: flex-start;
+  }
+}

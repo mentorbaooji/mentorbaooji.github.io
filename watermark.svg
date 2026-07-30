@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-hidden="true" focusable="false">
+  <!--
+    Watermark usage notes:
+    - Single tone (ink), no brass, so it never competes with foreground content.
+    - Opacity is intentionally baked into the fill (not left to CSS) so the
+      asset behaves identically whether placed in a webpage, a PDF, or an
+      exported document.
+    - Scale freely — this is a mark, not a photo, so it stays crisp at any size.
+    - Recommended usage: large-format, cropped/bled off the edge of a section
+      or page, never as a small centered logo repeat.
+  -->
+  <g fill="#1C1B19" fill-opacity="0.045">
+    <rect x="28" y="16" width="10" height="68"/>
+    <rect x="38" y="16" width="28" height="10"/>
+    <rect x="38" y="45" width="24" height="10"/>
+    <rect x="38" y="74" width="28" height="10"/>
+    <rect x="56" y="26" width="10" height="19"/>
+    <rect x="56" y="55" width="10" height="19"/>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+/* ==========================================================================
+   BAOOJI SAYS — signature section
+   Editorial, framed, quiet. Reuses existing tokens (variables.css),
+   type (typography.css), and the existing .btn-text component
+   (buttons.css) — nothing new is introduced to the design system here.
+   ========================================================================== */
+
+.baooji-says-frame {
+  /* Thin elegant border, no card/shadow — a framed page, not a box. */
+  border-top: var(--border-width-hairline) solid var(--color-border);
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+  padding-block: var(--space-7);
+  text-align: center;
+}
+
+.baooji-says-frame .eyebrow {
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+/* The featured statement is the section's centerpiece — set large,
+   in the display face, with room to breathe on every side. */
+.baooji-says-statement {
+  font-size: var(--font-size-2xl);
+  max-width: 18ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-6);
+}
+
+.baooji-says-body {
+  max-width: 52ch;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.baooji-says-body p {
+  color: var(--color-ink-soft);
+}
+
+.baooji-says-body > * + * {
+  margin-top: var(--space-4);
+}
+
+.baooji-says-cta {
+  margin-top: var(--space-6);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 599px) {
+  .baooji-says-frame {
+    padding-block: var(--space-6);
+  }
+
+  .baooji-says-statement {
+    font-size: var(--font-size-xl);
+    max-width: 16ch;
+  }
+}

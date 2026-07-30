@@ -1,0 +1,61 @@
+/* ==========================================================================
+   ACCESSIBILITY
+   Loaded last so its rules are never accidentally overridden by
+   component-level styles. Targets WCAG 2.2 AA.
+   ========================================================================== */
+
+/* Universal visible focus indicator for any interactive element that
+   doesn't already define its own (buttons/links define their own above,
+   this is the catch-all for nav toggles, form fields, etc.) */
+:focus-visible {
+  outline: var(--border-width-signature) solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Never remove focus outlines for mouse users either — :focus-visible
+   already limits the ring to keyboard/AT interaction in supporting
+   browsers, so no additional mouse-specific suppression is used here. */
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--border-width-signature) solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Text selection — kept legible, consistent with brand palette */
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+/* Respect reduced-motion preference across every animated component */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Minimum touch target size on mobile for all controls */
+@media (pointer: coarse) {
+  .btn,
+  .nav-toggle,
+  .nav-links a,
+  .mobile-nav a {
+    min-height: 44px;
+  }
+}
+
+/* Ensure long/zoomed text never breaks layout (WCAG 1.4.4 / 1.4.10) */
+html {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
