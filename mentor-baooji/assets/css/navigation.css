@@ -1,0 +1,175 @@
+/* ==========================================================================
+   NAVIGATION
+   Sticky, quiet header. Wordmark carries the signature brass hairline.
+   Mobile nav is a full-height off-canvas panel, toggled via vanilla JS
+   (see assets/js/navigation.js), not a framework component.
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background-color: var(--color-bg);
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-3);
+}
+
+/* ---------- Wordmark ---------- */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.wordmark::before {
+  content: "";
+  display: inline-block;
+  width: var(--border-width-signature);
+  height: 1.4em;
+  background-color: var(--color-accent);
+}
+
+/* ---------- Desktop nav links ---------- */
+.nav-links {
+  display: none;
+}
+
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nav-links a {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  padding-block: var(--space-1);
+  border-bottom: var(--border-width-hairline) solid transparent;
+  transition: color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Nav CTA is intentionally smaller/quieter than the hero CTA — it is
+   present everywhere but never competes with the primary hero moment. */
+.nav-cta {
+  padding-block: var(--space-1);
+  font-size: var(--font-size-xs);
+}
+
+/* ---------- Mobile menu toggle ---------- */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: var(--space-1);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-ink);
+  transition: transform var(--duration-base) var(--ease-standard),
+              opacity var(--duration-base) var(--ease-standard);
+}
+
+.nav-toggle[aria-expanded="true"] .bar-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .bar-2 {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .bar-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Mobile off-canvas panel ---------- */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-6) var(--container-padding-inline);
+  transform: translateX(100%);
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.mobile-nav[data-open="true"] {
+  transform: translateX(0);
+}
+
+.mobile-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-ink);
+}
+
+.mobile-nav .nav-cta-wrap {
+  margin-top: var(--space-6);
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--container-padding-inline);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+/* Lock body scroll while mobile nav is open (class toggled via JS) */
+body.nav-open {
+  overflow: hidden;
+}
+
+/* ---------- Breakpoint: show desktop nav, hide mobile toggle ---------- */
+@media (min-width: 900px) {
+  .nav-links {
+    display: block;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+}

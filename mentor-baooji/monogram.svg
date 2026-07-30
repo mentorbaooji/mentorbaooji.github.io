@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="monogramTitle">
+  <title id="monogramTitle">Mentor Baooji monogram</title>
+
+  <!-- Spine — the brand's recurring signature accent, formalized as the
+       letterform's own left stroke instead of a separate decoration. -->
+  <rect x="28" y="16" width="10" height="68" fill="#8A6F3E"/>
+
+  <!-- Bowl strokes — ink -->
+  <rect x="38" y="16" width="28" height="10" fill="#1C1B19"/>
+  <rect x="38" y="45" width="24" height="10" fill="#1C1B19"/>
+  <rect x="38" y="74" width="28" height="10" fill="#1C1B19"/>
+  <rect x="56" y="26" width="10" height="19" fill="#1C1B19"/>
+  <rect x="56" y="55" width="10" height="19" fill="#1C1B19"/>
+</svg>

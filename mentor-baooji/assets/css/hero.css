@@ -1,0 +1,120 @@
+/* ==========================================================================
+   HERO
+   Text-left / portrait-right editorial split on desktop, stacked on
+   mobile. Deliberately still and quiet: no carousel, no autoplay,
+   generous negative space — the page's opening thesis.
+   ========================================================================== */
+
+.hero {
+  padding-block-start: var(--space-7);
+  padding-block-end: var(--space-8);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 46ch;
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--space-4);
+}
+
+.hero-headline {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-4);
+}
+
+.hero-subline {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-snug);
+  margin-bottom: var(--space-5);
+  max-width: 42ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.hero-credibility {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+  max-width: 42ch;
+}
+
+.hero-credibility p {
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-faint);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Portrait ---------- */
+.hero-portrait {
+  position: relative;
+}
+
+.hero-portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.hero-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Quiet accent rule tying the portrait back to the signature mark,
+   rather than a decorative border or shadow. */
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  left: calc(-1 * var(--space-3));
+  width: var(--border-width-signature);
+  height: calc(100% - var(--space-8));
+  background-color: var(--color-accent);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding-block-start: var(--space-8);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-8);
+  }
+
+  .hero-headline {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (max-width: 899px) {
+  .hero-portrait {
+    order: -1;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+
+  .hero-portrait::before {
+    display: none;
+  }
+}

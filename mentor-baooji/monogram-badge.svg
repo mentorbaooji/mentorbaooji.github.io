@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="monogramBadgeTitle">
+  <title id="monogramBadgeTitle">Mentor Baooji</title>
+
+  <!-- Parchment field + quiet hairline ring -->
+  <circle cx="60" cy="60" r="58" fill="#F6F3EE"/>
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#DDD6C8" stroke-width="1.5"/>
+
+  <!-- Monogram, centered with 10px inset from the base 100x100 mark -->
+  <g transform="translate(10, 10)">
+    <rect x="28" y="16" width="10" height="68" fill="#8A6F3E"/>
+    <rect x="38" y="16" width="28" height="10" fill="#1C1B19"/>
+    <rect x="38" y="45" width="24" height="10" fill="#1C1B19"/>
+    <rect x="38" y="74" width="28" height="10" fill="#1C1B19"/>
+    <rect x="56" y="26" width="10" height="19" fill="#1C1B19"/>
+    <rect x="56" y="55" width="10" height="19" fill="#1C1B19"/>
+  </g>
+</svg>

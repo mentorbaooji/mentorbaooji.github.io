@@ -1,0 +1,76 @@
+/* ==========================================================================
+   BUTTONS
+   Rectangular, hairline-based — no pill shapes, no drop shadows.
+   Primary is filled (used ONLY for the WhatsApp Channel CTA, protecting
+   its visual priority sitewide). Secondary is an outline. Text-link is
+   the quietest option, used for lower-priority actions like "Read the story."
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-none);
+  border: var(--border-width-hairline) solid transparent;
+  transition: background-color var(--duration-base) var(--ease-standard),
+              color var(--duration-base) var(--ease-standard),
+              border-color var(--duration-base) var(--ease-standard);
+}
+
+/* Primary — reserved for the site's single dominant action */
+.btn-primary {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+}
+
+/* Secondary — outline, used for supporting actions */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* Text link — quietest action, e.g. "Read Baooji's Story" */
+.btn-text {
+  padding: var(--space-1) 0;
+  font-weight: 500;
+  color: var(--color-accent-deep);
+  border-bottom: var(--border-width-hairline) solid var(--color-accent);
+  border-radius: 0;
+}
+
+.btn-text:hover {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Visible keyboard focus — consistent across every button variant.
+   Uses outline (not box-shadow) so it is never accidentally clipped
+   by overflow:hidden on a parent. */
+.btn:focus-visible {
+  outline: var(--border-width-signature) solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
