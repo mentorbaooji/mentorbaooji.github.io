@@ -1,0 +1,103 @@
+/* ==========================================================================
+   ABOUT PAGE
+   Reuses existing tokens (variables.css / typography.css / layout.css)
+   for all color, spacing, and type. Only net-new component patterns are
+   defined here: value cards, the mission callout, and the highlight
+   block — everything else (.section, .container-narrow, .eyebrow,
+   .stack, .btn) is the existing design system, untouched.
+   ========================================================================== */
+
+.about-block-heading {
+  margin-bottom: var(--space-5);
+  max-width: 22ch;
+}
+
+/* ---------- Mission callout ---------- */
+.about-callout {
+  margin-top: var(--space-5);
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-ink);
+  padding-left: var(--space-4);
+  border-left: var(--border-width-signature) solid var(--color-accent);
+}
+
+/* ---------- Values grid ---------- */
+.about-values-intro {
+  max-width: var(--container-narrow);
+  margin-bottom: var(--space-7);
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 700px) {
+  .about-values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .about-values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-value-card {
+  padding: var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.about-value-card h3 {
+  margin-bottom: var(--space-2);
+}
+
+.about-value-card p {
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-sm);
+}
+
+/* ---------- Never Compromise highlight ---------- */
+.about-highlight-frame {
+  text-align: center;
+  border-top: var(--border-width-hairline) solid var(--color-border);
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+  padding-block: var(--space-7);
+}
+
+.about-highlight-frame .eyebrow {
+  justify-content: center;
+  margin-bottom: var(--space-5);
+}
+
+.about-highlight-statement {
+  max-width: 26ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.about-highlight-text {
+  color: var(--color-ink-soft);
+  max-width: 42ch;
+  margin-inline: auto;
+}
+
+/* ---------- Closing CTA ---------- */
+.about-cta-inner {
+  text-align: center;
+}
+
+.about-cta-headline {
+  margin-bottom: var(--space-3);
+}
+
+.about-cta-text {
+  color: var(--color-ink-soft);
+  max-width: 40ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
