@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+  <!-- ============================================================
+       CHARACTER SET / VIEWPORT
+       ============================================================ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Blog — Mentor Baooji</title>
-  <meta name="description" content="Practical lessons on Facebook, TikTok, AI tools, SEO and digital skills — written plainly, the way Mentor Baooji explains things to one student at a time.">
+  <!-- ============================================================
+       SEO META
+       ============================================================ -->
+  <title>Blog — Knowledge Library | Mentor Baooji</title>
+  <meta name="description" content="Insights, strategies and practical digital skills. Learn Facebook, TikTok, AI and online business through clear, experience-based articles from Mentor Baooji.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.mentorbaooji.com/blog.html">
+  <link rel="canonical" href="https://www.mentorbaooji.com/blog/">
   <meta name="author" content="Muhammad Asif Riaz">
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Mentor Baooji">
-  <meta property="og:title" content="Blog — Mentor Baooji">
-  <meta property="og:description" content="Practical lessons on Facebook, TikTok, AI tools, SEO and digital skills.">
-  <meta property="og:url" content="https://www.mentorbaooji.com/blog.html">
-  <meta property="og:image" content="https://www.mentorbaooji.com/assets/images/og/home-og.jpg">
+  <meta property="og:title" content="Blog — Knowledge Library | Mentor Baooji">
+  <meta property="og:description" content="Insights, strategies and practical digital skills. Learn Facebook, TikTok, AI and online business through clear, experience-based articles.">
+  <meta property="og:url" content="https://www.mentorbaooji.com/blog/">
+  <meta property="og:image" content="https://www.mentorbaooji.com/assets/images/og/blog-og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
 
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog — Mentor Baooji">
-  <meta name="twitter:description" content="Practical lessons on Facebook, TikTok, AI tools, SEO and digital skills.">
-  <meta name="twitter:image" content="https://www.mentorbaooji.com/assets/images/og/home-og.jpg">
+  <meta name="twitter:title" content="Blog — Knowledge Library | Mentor Baooji">
+  <meta name="twitter:description" content="Insights, strategies and practical digital skills. Learn Facebook, TikTok, AI and online business through clear, experience-based articles.">
+  <meta name="twitter:image" content="https://www.mentorbaooji.com/assets/images/og/blog-og.jpg">
 
   <meta name="theme-color" content="#F6F3EE">
 
+  <!-- ============================================================
+       FAVICON
+       ============================================================ -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
+  <!-- ============================================================
+       PERFORMANCE — resource hints
+       ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- ============================================================
+       CSS — only the sheets this page actually uses. Home-page-only
+       component files (hero.css, origin-story.css, student-success.css,
+       baooji-says.css) are intentionally not loaded here.
+       ============================================================ -->
   <link rel="stylesheet" href="/assets/css/variables.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/typography.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
   <link rel="stylesheet" href="/assets/css/navigation.css">
-  <link rel="stylesheet" href="/assets/css/hero.css">
   <link rel="stylesheet" href="/assets/css/footer.css">
   <link rel="stylesheet" href="/assets/css/buttons.css">
-  <link rel="stylesheet" href="/assets/css/accessibility.css">
-
   <link rel="stylesheet" href="/assets/css/blog.css">
+  <link rel="stylesheet" href="/assets/css/accessibility.css">
 </head>
 <body>
 
+  <!-- Accessibility: skip link, first focusable element on the page -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <div id="page">
 
+    <!-- ============================================================
+         HEADER / NAVIGATION — unchanged from Home, active state moved
+         to Blog
+         ============================================================ -->
     <header class="site-header">
       <div class="container nav-bar">
 
@@ -64,8 +86,8 @@
           <ul>
             <li><a href="/" data-nav-link>Home</a></li>
             <li><a href="/about.html" data-nav-link>About</a></li>
-            <li><a href="/blog.html" data-nav-link aria-current="page">Blog</a></li>
-            <li><a href="/resources.html" data-nav-link>Resources</a></li>
+            <li><a href="/blog/" data-nav-link aria-current="page">Blog</a></li>
+            <li><a href="/resources/" data-nav-link>Resources</a></li>
             <li><a href="/courses/" data-nav-link>Courses</a></li>
             <li><a href="/community.html" data-nav-link>Community</a></li>
           </ul>
@@ -94,6 +116,9 @@
       </div>
     </header>
 
+    <!-- ============================================================
+         MOBILE OFF-CANVAS NAV — unchanged from Home
+         ============================================================ -->
     <nav class="mobile-nav"
          id="mobile-nav"
          data-mobile-nav
@@ -108,8 +133,8 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/about.html">About</a></li>
-        <li><a href="/blog.html">Blog</a></li>
-        <li><a href="/resources.html">Resources</a></li>
+        <li><a href="/blog/" aria-current="page">Blog</a></li>
+        <li><a href="/resources/">Resources</a></li>
         <li><a href="/courses/">Courses</a></li>
         <li><a href="/community.html">Community</a></li>
       </ul>
@@ -124,35 +149,159 @@
       </div>
     </nav>
 
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
     <main id="main-content">
 
       <!-- ==========================================================
            HERO
            ========================================================== -->
-      <section class="hero blog-hero" aria-labelledby="blog-hero-heading">
-        <div class="container">
-          <div class="blog-hero-content" data-reveal>
-            <p class="eyebrow">Blog</p>
-            <h1 id="blog-hero-heading" class="hero-headline">
-              Practical lessons, not theory.
-            </h1>
-            <p class="hero-subline">
-              Straightforward guides on Facebook, TikTok, AI tools, SEO
-              and the digital skills that actually pay — written the way
-              I'd explain them to one student.
-            </p>
+      <section class="blog-hero section" aria-labelledby="blog-hero-heading">
+        <div class="container-narrow" data-reveal>
 
-            <form class="blog-search" role="search" action="#" onsubmit="return false;">
-              <label for="blog-search-input" class="visually-hidden">Search articles</label>
-              <input type="search"
-                     id="blog-search-input"
-                     class="blog-search-input"
-                     placeholder="Search articles (coming soon)"
-                     disabled>
-              <button type="submit" class="btn btn-secondary blog-search-button" disabled>
-                Search
-              </button>
-            </form>
+          <p class="eyebrow">Knowledge Library</p>
+
+          <h1 id="blog-hero-heading" class="blog-hero-heading">
+            Insights, Strategies &amp; Practical Digital Skills
+          </h1>
+
+          <p class="blog-hero-lede">
+            Learn practical Facebook, TikTok, AI and digital business
+            strategies through clear, experience-based articles designed
+            to help you build real online income.
+          </p>
+
+          <div class="blog-hero-actions">
+            <a href="https://whatsapp.com/channel/0029VbAeGN4KWEL04m98dg14"
+               class="btn btn-primary"
+               target="_blank" rel="noopener noreferrer">
+              Join WhatsApp Channel
+            </a>
+            <a href="#categories" class="btn btn-secondary">
+              Browse Categories
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           FEATURED ARTICLES
+           Premium placeholders, not fabricated articles — each card
+           names a real topic this library will cover, marked clearly
+           as not yet published.
+           ========================================================== -->
+      <section class="blog-featured section section-alt" aria-labelledby="blog-featured-heading">
+        <div class="container">
+
+          <div data-reveal>
+            <p class="eyebrow">Featured Articles</p>
+            <h2 id="blog-featured-heading" class="blog-section-heading">
+              What this library will cover first
+            </h2>
+          </div>
+
+          <div class="blog-grid">
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Facebook Automation</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">Facebook Automation</h3>
+                <p class="blog-card-text">
+                  How automation fits into a Facebook growth strategy —
+                  and where relying on it too early actually slows
+                  students down.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">TikTok Automation</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">TikTok Automation</h3>
+                <p class="blog-card-text">
+                  A practical look at what can be automated on TikTok,
+                  and what still needs a real person behind it.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Artificial Intelligence</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">Artificial Intelligence</h3>
+                <p class="blog-card-text">
+                  The AI tools actually worth learning right now, and how
+                  they fit into a real content workflow.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Online Income</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">Online Income</h3>
+                <p class="blog-card-text">
+                  An honest look at how online income is actually built —
+                  the timeline, the setbacks, and what changes the
+                  outcome.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Content Creation</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">Content Creation</h3>
+                <p class="blog-card-text">
+                  Practical frameworks for creating content consistently,
+                  without relying on motivation to show up.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
+            <article class="blog-card" data-reveal>
+              <div class="blog-card-cover" aria-hidden="true"></div>
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">Mindset</span>
+                  <span class="blog-card-readtime">Reading time — coming soon</span>
+                </div>
+                <h3 class="blog-card-title">Mindset</h3>
+                <p class="blog-card-text">
+                  The thinking patterns that separate students who stay
+                  consistent from students who quit early.
+                </p>
+                <span class="blog-card-badge">Coming Soon</span>
+              </div>
+            </article>
+
           </div>
         </div>
       </section>
@@ -160,134 +309,106 @@
       <!-- ==========================================================
            CATEGORIES
            ========================================================== -->
-      <section class="blog-categories section section-alt" aria-labelledby="blog-categories-heading">
+      <section class="blog-categories section" id="categories" aria-labelledby="blog-categories-heading">
         <div class="container" data-reveal>
-          <p class="eyebrow">Categories</p>
+
+          <p class="eyebrow">Explore by Category</p>
           <h2 id="blog-categories-heading" class="blog-section-heading">
-            What we'll cover
+            Ten categories, one library
           </h2>
-          <ul class="blog-category-list">
-            <li class="blog-category-pill">Facebook Automation</li>
-            <li class="blog-category-pill">TikTok Automation</li>
-            <li class="blog-category-pill">TikTok Shop</li>
-            <li class="blog-category-pill">AI Tools</li>
-            <li class="blog-category-pill">SEO</li>
-            <li class="blog-category-pill">Content Creation</li>
-            <li class="blog-category-pill">Mindset</li>
-            <li class="blog-category-pill">Student Success</li>
-            <li class="blog-category-pill">Monetization</li>
-            <li class="blog-category-pill">Digital Skills</li>
+
+          <div class="blog-categories-grid">
+            <span class="blog-category-tile">Facebook Automation</span>
+            <span class="blog-category-tile">TikTok Automation</span>
+            <span class="blog-category-tile">TikTok Shop</span>
+            <span class="blog-category-tile">Artificial Intelligence</span>
+            <span class="blog-category-tile">SEO</span>
+            <span class="blog-category-tile">Content Creation</span>
+            <span class="blog-category-tile">Online Income</span>
+            <span class="blog-category-tile">Student Success</span>
+            <span class="blog-category-tile">Mindset</span>
+            <span class="blog-category-tile">Digital Skills</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           POPULAR TOPICS
+           ========================================================== -->
+      <section class="blog-topics section section-alt" aria-labelledby="blog-topics-heading">
+        <div class="container-narrow" data-reveal>
+
+          <p class="eyebrow">Popular Topics</p>
+          <h2 id="blog-topics-heading" class="blog-section-heading">
+            Jump to what you're looking for
+          </h2>
+
+          <ul class="blog-topics-list">
+            <li><a href="#categories">Facebook</a></li>
+            <li><a href="#categories">TikTok</a></li>
+            <li><a href="#categories">AI</a></li>
+            <li><a href="#categories">SEO</a></li>
+            <li><a href="#categories">Automation</a></li>
+            <li><a href="#categories">Monetization</a></li>
+            <li><a href="#categories">Reels</a></li>
+            <li><a href="#categories">Content</a></li>
+            <li><a href="#categories">Algorithms</a></li>
+            <li><a href="#categories">Mindset</a></li>
           </ul>
+
         </div>
       </section>
 
       <!-- ==========================================================
-           FEATURED ARTICLES (empty state — no articles published yet)
+           NEWSLETTER
            ========================================================== -->
-      <section class="blog-articles section" aria-labelledby="blog-articles-heading">
-        <div class="container">
-          <div class="blog-articles-intro" data-reveal>
-            <p class="eyebrow">Featured Articles</p>
-            <h2 id="blog-articles-heading" class="blog-section-heading">
-              New lessons are being written now
-            </h2>
-            <p class="blog-articles-note">
-              The first articles haven't been published yet. Here's what's
-              coming — join the WhatsApp Channel below to know the moment
-              each one goes live.
-            </p>
-          </div>
+      <section class="blog-newsletter section" aria-labelledby="blog-newsletter-heading">
+        <div class="container-narrow" data-reveal>
 
-          <div class="blog-articles-grid">
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">Facebook Automation</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>Facebook Automation lessons</h3>
-              <p>Practical guides on building and running Facebook pages the right way.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">TikTok Automation</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>TikTok Automation lessons</h3>
-              <p>What's actually working on TikTok right now, explained plainly.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">TikTok Shop</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>TikTok Shop lessons</h3>
-              <p>How TikTok Shop works and how beginners can approach it sensibly.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">AI Tools</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>AI Tools lessons</h3>
-              <p>Which AI tools are genuinely useful for digital work, and how to use them.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">SEO</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>SEO lessons</h3>
-              <p>The fundamentals of getting found online, without the jargon.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">Content Creation</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>Content Creation lessons</h3>
-              <p>Practical approaches to creating content consistently, without burning out.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">Mindset</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>Mindset lessons</h3>
-              <p>The thinking patterns that separate students who finish from those who quit.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">Student Success</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>Student Success lessons</h3>
-              <p>Real lessons drawn from what's worked for students across different platforms.</p>
-            </article>
-
-            <article class="blog-article-card" data-reveal>
-              <span class="blog-article-tag">Monetization</span>
-              <span class="blog-article-badge">Coming Soon</span>
-              <h3>Monetization lessons</h3>
-              <p>How monetization actually works across platforms, and what to expect.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================
-           NEWSLETTER / WHATSAPP CTA
-           ========================================================== -->
-      <section class="blog-cta section section-alt" aria-labelledby="blog-cta-heading">
-        <div class="container-narrow blog-cta-inner" data-reveal>
-          <h2 id="blog-cta-heading" class="blog-cta-headline">
-            Never miss a lesson.
+          <h2 id="blog-newsletter-heading" class="blog-newsletter-heading">
+            Never Miss a Lesson
           </h2>
-          <p class="blog-cta-text">
-            New articles will be shared inside the WhatsApp Channel the
-            moment they're published — no separate sign-up needed.
+          <p class="blog-newsletter-text">
+            The easiest way to receive regular updates from this library
+            is by joining the official WhatsApp Channel — new lessons,
+            guides and student results are shared there first.
+          </p>
+          <a href="https://whatsapp.com/channel/0029VbAeGN4KWEL04m98dg14"
+             class="btn btn-primary"
+             target="_blank" rel="noopener noreferrer">
+            Join WhatsApp Channel
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           BOTTOM CTA
+           ========================================================== -->
+      <section class="blog-bottom-cta section section-alt" aria-labelledby="blog-bottom-cta-heading">
+        <div class="container-narrow" data-reveal>
+
+          <h2 id="blog-bottom-cta-heading" class="blog-bottom-cta-heading">
+            Learning never stops.
+          </h2>
+          <p class="blog-bottom-cta-text">
+            Every successful creator starts as a beginner.
           </p>
           <a href="https://whatsapp.com/channel/0029VbAeGN4KWEL04m98dg14"
              class="btn btn-primary"
              target="_blank" rel="noopener noreferrer">
             Join the WhatsApp Channel
-            <span class="visually-hidden">(opens in a new window)</span>
           </a>
+
         </div>
       </section>
 
     </main>
 
+    <!-- ============================================================
+         FOOTER — unchanged from Home
+         ============================================================ -->
     <footer class="site-footer">
       <div class="container">
 
@@ -304,8 +425,8 @@
           <nav class="footer-nav" aria-label="Footer">
             <ul>
               <li><a href="/about.html">About</a></li>
-              <li><a href="/blog.html">Blog</a></li>
-              <li><a href="/resources.html">Resources</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/resources/">Resources</a></li>
               <li><a href="/courses/">Courses</a></li>
               <li><a href="/faq.html">FAQ</a></li>
             </ul>
@@ -338,6 +459,9 @@
 
   </div>
 
+  <!-- ============================================================
+       JAVASCRIPT — same shared, existing files. No new JS.
+       ============================================================ -->
   <script src="/assets/js/navigation.js" defer></script>
   <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/reveal.js" defer></script>
