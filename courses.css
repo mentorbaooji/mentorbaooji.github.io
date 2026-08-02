@@ -1,0 +1,613 @@
+/* ==========================================================================
+   COURSES PAGE
+   Reuses existing tokens (variables.css / typography.css / layout.css) and
+   existing sitewide utilities (.section, .section-alt, .container,
+   .container-narrow, .eyebrow, .stack, .btn*) exactly as used elsewhere on
+   the site. Only the components below are new. Local-only radius/shadow
+   values follow the same scoped-exception convention already established
+   in student-success.css.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.courses-hero-heading {
+  max-width: 22ch;
+  margin-bottom: var(--space-5);
+}
+
+.courses-hero-lede {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-snug);
+  max-width: 62ch;
+  margin-bottom: var(--space-6);
+}
+
+.courses-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ---------- Shared section heading ---------- */
+.courses-section-heading {
+  margin-bottom: var(--space-6);
+}
+
+.courses-section-lede {
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+  margin-bottom: var(--space-7);
+}
+
+/* ---------- Why Learn With Mentor Baooji ---------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 700px) {
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.why-card {
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 14px; /* local exception, see file header */
+}
+
+.why-card-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.why-card-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+}
+
+/* ---------- Choose Your Learning Path (pricing) ---------- */
+.paths-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .paths-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 16px; /* local exception, see file header */
+}
+
+.path-card.is-featured {
+  border-color: var(--color-accent-deep);
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+              0 16px 36px rgba(28, 27, 25, 0.07); /* local exception, see file header */
+}
+
+.path-card-badge {
+  align-self: flex-start;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-bg);
+  background-color: var(--color-accent-deep);
+  padding: 3px var(--space-3);
+  border-radius: 999px; /* local exception, see file header */
+  margin-bottom: var(--space-4);
+}
+
+.path-card-name {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+}
+
+.path-card-price {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--color-accent-deep);
+  line-height: var(--line-height-tight);
+}
+
+.path-card-price-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-5);
+}
+
+.path-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+  flex-grow: 1;
+}
+
+.path-card-features li {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.path-card-features li:first-child {
+  border-top: none;
+}
+
+.path-card-features li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 50%; /* local exception, see file header */
+  background-color: var(--color-accent-deep);
+}
+
+.path-card-action {
+  align-self: flex-start;
+}
+
+/* ---------- Programs ---------- */
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 700px) {
+  .programs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.program-card {
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 14px; /* local exception, see file header */
+}
+
+.program-card-title {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-3);
+}
+
+.program-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.program-card-meta span {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-deep);
+  background-color: var(--color-accent-soft);
+  padding: 3px var(--space-3);
+  border-radius: 999px; /* local exception, see file header */
+}
+
+.program-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+}
+
+.program-card-features li {
+  padding: var(--space-1) 0;
+}
+
+/* ---------- AI section ---------- */
+.ai-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.ai-chip {
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 999px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+/* ---------- Comparison table ---------- */
+.comparison-table-wrap {
+  overflow-x: auto;
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 14px; /* local exception, see file header */
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: var(--font-size-sm);
+}
+
+.comparison-table caption {
+  text-align: left;
+  padding: var(--space-5) var(--space-6) 0;
+  color: var(--color-ink-faint);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: var(--space-4) var(--space-5);
+  text-align: left;
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+}
+
+.comparison-table thead th {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  color: var(--color-ink);
+  background-color: var(--color-bg-alt);
+}
+
+.comparison-table tbody th {
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.comparison-table tbody td {
+  color: var(--color-ink-soft);
+}
+
+.comparison-table tbody tr:last-child th,
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------- 4-week journey ---------- */
+.journey-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .journey-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.journey-step {
+  padding-top: var(--space-5);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.journey-step-week {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent-deep);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+
+.journey-step-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.journey-step-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+}
+
+/* ---------- Resources / Requirements / Batch ---------- */
+.extras-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+}
+
+@media (min-width: 900px) {
+  .extras-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.extras-block-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-3);
+}
+
+.extras-block-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirements-list li {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+}
+
+.requirements-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 50%; /* local exception, see file header */
+  background-color: var(--color-accent-deep);
+}
+
+.batch-callout {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 12px; /* local exception, see file header */
+  background-color: var(--color-accent-soft);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-deep);
+  font-weight: 500;
+}
+
+/* ---------- Payment methods ---------- */
+.extras-block-payment {
+  margin-top: var(--space-8);
+}
+
+.payment-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.payment-chip {
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 10px; /* local exception, see file header */
+  background-color: var(--color-surface);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+/* ---------- FAQ accordion (native <details>/<summary>, no JS) ---------- */
+.courses-faq-list {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+
+.faq-item {
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent-deep);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 4px;
+}
+
+.faq-item-answer {
+  padding: 0 0 var(--space-5);
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+  max-width: 62ch;
+}
+
+/* ---------- Course Readiness Assessment ---------- */
+.assessment {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding: var(--space-7);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 16px; /* local exception, see file header */
+}
+
+.assessment-progress-track {
+  height: 6px;
+  border-radius: 999px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.assessment-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-accent-deep);
+  transition: width var(--duration-base) var(--ease-standard);
+}
+
+.assessment-question {
+  padding: var(--space-5) 0;
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.assessment-question:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.assessment-question[hidden] {
+  display: none;
+}
+
+.assessment-question-text {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-4);
+}
+
+.assessment-answers {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.assessment-answer-btn {
+  flex: 1;
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 10px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-standard),
+              background-color var(--duration-base) var(--ease-standard),
+              color var(--duration-base) var(--ease-standard);
+}
+
+.assessment-answer-btn:hover,
+.assessment-answer-btn:focus-visible {
+  border-color: var(--color-accent-deep);
+}
+
+.assessment-answer-btn[aria-pressed="true"] {
+  background-color: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  color: var(--color-bg);
+}
+
+.assessment-result {
+  padding-top: var(--space-6);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+  text-align: center;
+}
+
+.assessment-result[hidden] {
+  display: none;
+}
+
+.assessment-score {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--color-accent-deep);
+  margin-bottom: var(--space-3);
+}
+
+.assessment-recommendation {
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+  margin: 0 auto var(--space-6);
+}
+
+.assessment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.assessment-intro-note {
+  color: var(--color-ink-faint);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Final CTA ---------- */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta-heading {
+  max-width: 24ch;
+  margin: 0 auto var(--space-4);
+}
+
+.final-cta-text {
+  color: var(--color-ink-soft);
+  max-width: 50ch;
+  margin: 0 auto var(--space-6);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 599px) {
+  .assessment {
+    padding: var(--space-5);
+  }
+
+  .assessment-answers {
+    flex-direction: column;
+  }
+}
