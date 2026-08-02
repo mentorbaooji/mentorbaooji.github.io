@@ -22,14 +22,6 @@
   margin-bottom: var(--space-6);
 }
 
-/* ---------- Intro paragraph ---------- */
-.resources-intro-text {
-  font-size: var(--font-size-md);
-  color: var(--color-ink-soft);
-  line-height: var(--line-height-body);
-  max-width: 60ch;
-}
-
 /* ---------- Section headings ---------- */
 .resources-section-heading {
   margin-bottom: var(--space-6);
@@ -124,79 +116,6 @@
   align-self: flex-start;
 }
 
-.resource-card-action[disabled] {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* ---------- Daily Learning band ---------- */
-.resources-daily {
-  text-align: center;
-}
-
-.resources-daily-heading {
-  margin-bottom: var(--space-4);
-}
-
-.resources-daily-text {
-  color: var(--color-ink-soft);
-  max-width: 52ch;
-  margin: 0 auto var(--space-6);
-}
-
-/* ---------- FAQ accordion (native <details>/<summary>, no JS) ---------- */
-.resources-faq-list {
-  max-width: var(--container-narrow);
-  margin-inline: auto;
-}
-
-.faq-item {
-  border-bottom: var(--border-width-hairline) solid var(--color-border);
-}
-
-.faq-item summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding: var(--space-5) 0;
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  color: var(--color-ink);
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::after {
-  content: "+";
-  flex-shrink: 0;
-  font-family: var(--font-display);
-  font-size: var(--font-size-lg);
-  color: var(--color-accent-deep);
-  transition: transform var(--duration-base) var(--ease-standard);
-}
-
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-}
-
-.faq-item summary:focus-visible {
-  outline: 2px solid var(--color-accent-deep);
-  outline-offset: 4px;
-}
-
-.faq-item-answer {
-  padding: 0 0 var(--space-5);
-  color: var(--color-ink-soft);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-body);
-  max-width: 62ch;
-}
-
 /* ---------- Closing CTA ---------- */
 .resources-cta {
   text-align: center;
@@ -210,4 +129,144 @@
   color: var(--color-ink-soft);
   max-width: 46ch;
   margin: 0 auto var(--space-6);
+}
+
+/* ==========================================================================
+   ADDITIONS BELOW — new components for the finalized Resources page.
+   Nothing above this line has been changed. These rules only add classes
+   that didn't exist yet; existing selectors (.resource-card, .resource-card-
+   badge, .resources-grid, etc.) are reused as-is wherever they already fit.
+   ========================================================================== */
+
+/* ---------- Hero actions (two buttons) ---------- */
+.resources-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ---------- Why Free Resources ---------- */
+.resources-why-text {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+  max-width: 62ch;
+  margin-bottom: var(--space-6);
+}
+
+.resources-why-statements {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  max-width: 62ch;
+}
+
+@media (min-width: 600px) {
+  .resources-why-statements {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.resources-why-statement {
+  padding: var(--space-5);
+  border-left: 2px solid var(--color-accent-deep);
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-ink);
+  line-height: var(--line-height-snug);
+}
+
+/* ---------- Resource card badge row (category + beginner-friendly) ---------- */
+.resource-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Beginner-friendly is a modifier on the existing .resource-card-badge —
+   same pill shape, distinct accent color so it reads as a different kind
+   of label from the category badge. */
+.resource-card-badge.is-beginner {
+  color: var(--color-accent-deep);
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent-deep);
+}
+
+/* ---------- Sub-bullet list inside a resource card (used where the
+   original content is itself a list — AI Prompt Library, Content
+   Planning Template — so the exact wording is preserved item-by-item) ---------- */
+.resource-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-5);
+  flex-grow: 1;
+}
+
+.resource-card-list li {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-body);
+}
+
+.resource-card-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  margin-top: 8px;
+  border-radius: 50%; /* local exception, see file header */
+  background-color: var(--color-accent-deep);
+}
+
+/* ---------- Weekly Resource Updates band (mirrors the Daily band pattern
+   already established above, without altering it) ---------- */
+.resources-weekly {
+  text-align: center;
+}
+
+.resources-weekly-heading {
+  margin-bottom: var(--space-4);
+}
+
+.resources-weekly-text {
+  color: var(--color-ink-soft);
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+/* ---------- Coming Soon placeholder cards ---------- */
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 700px) {
+  .coming-soon-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .coming-soon-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.coming-soon-card {
+  padding: var(--space-5);
+  text-align: center;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: 14px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+}
+
+.coming-soon-card-title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-3);
 }

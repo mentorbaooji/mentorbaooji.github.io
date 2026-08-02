@@ -1,0 +1,249 @@
+/* ==========================================================================
+   COMMUNITY PAGE
+   Reuses existing tokens (variables.css / typography.css / layout.css) and
+   existing sitewide utilities (.section, .section-alt, .container,
+   .container-narrow, .eyebrow, .stack, .btn*) exactly as used elsewhere on
+   the site. Only the components below are new. Local-only radius/shadow
+   values follow the same scoped-exception convention already established
+   in student-success.css.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.community-hero-heading {
+  max-width: 22ch;
+  margin-bottom: var(--space-5);
+}
+
+.community-hero-lede {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-snug);
+  max-width: 62ch;
+  margin-bottom: var(--space-6);
+}
+
+.community-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* ---------- Shared section heading ---------- */
+.community-section-heading {
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Who Can Join? ---------- */
+.who-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.who-chip {
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 999px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.who-note {
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-md);
+  max-width: 60ch;
+}
+
+/* ---------- Who Is This NOT For? (callout) ---------- */
+.community-callout {
+  padding: var(--space-6);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 14px; /* local exception, see file header */
+  background-color: var(--color-bg-alt);
+  max-width: 62ch;
+}
+
+.community-callout p {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.community-callout p + p {
+  margin-top: var(--space-3);
+}
+
+/* ---------- What You Get (Daily / Weekly) ---------- */
+.gets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 700px) {
+  .gets-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .gets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gets-card {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 12px; /* local exception, see file header */
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* ---------- Community Expectations ---------- */
+.expectations-text {
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-body);
+  max-width: 62ch;
+}
+
+.expectations-text > * + * {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Community Rules ---------- */
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 52ch;
+}
+
+.rules-list li {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  font-size: var(--font-size-base);
+  color: var(--color-ink);
+  border-top: var(--border-width-hairline) solid var(--color-border);
+}
+
+.rules-list li:first-child {
+  border-top: none;
+}
+
+.rules-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 9px;
+  border-radius: 50%; /* local exception, see file header */
+  background-color: var(--color-accent-deep);
+}
+
+/* ---------- Success Begins With Skills ---------- */
+.skills-statement {
+  text-align: center;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+.skills-statement p {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-snug);
+  color: var(--color-ink);
+}
+
+.skills-statement p.is-lead {
+  font-size: var(--font-size-xl);
+  color: var(--color-accent-deep);
+  margin-bottom: var(--space-4);
+}
+
+.skills-statement p + p {
+  margin-top: var(--space-2);
+}
+
+/* ---------- FAQ accordion (native <details>/<summary>, no JS) ---------- */
+.community-faq-list {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+
+.faq-item {
+  border-bottom: var(--border-width-hairline) solid var(--color-border);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent-deep);
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 4px;
+}
+
+.faq-item-answer {
+  padding: 0 0 var(--space-5);
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-body);
+  max-width: 62ch;
+}
+
+/* ---------- Final CTA ---------- */
+.community-final-cta {
+  text-align: center;
+}
+
+.community-final-cta-heading {
+  max-width: 26ch;
+  margin: 0 auto var(--space-4);
+}
+
+.community-final-cta-lines {
+  color: var(--color-ink-soft);
+  font-size: var(--font-size-md);
+  max-width: 40ch;
+  margin: 0 auto var(--space-6);
+}
+
+.community-final-cta-lines p + p {
+  margin-top: var(--space-1);
+}
