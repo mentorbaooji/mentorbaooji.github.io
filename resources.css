@@ -1,37 +1,56 @@
 /* ==========================================================================
    RESOURCES PAGE
-   Reuses existing tokens (variables.css / typography.css / layout.css) and
-   existing sitewide utilities (.section, .section-alt, .container,
-   .container-narrow, .eyebrow, .stack, .btn*) exactly as used on the Home
-   page. Only the components below are new. Local-only radius/shadow values
-   follow the same scoped-exception convention already established in
-   student-success.css.
+   Reuses existing tokens throughout. Net-new patterns: resource cards
+   (aligned to the same soft-shadow/radius card language already
+   established by Student Success on Home, for sitewide consistency),
+   the intro/daily-learning blocks, and an animated <details>/<summary>
+   FAQ accordion — no JavaScript required for the accordion behavior.
+
+   PRODUCTION POLISH PASS — this revision:
+   - adds .hero-compact (page-scoped, does not touch shared hero.css)
+   - aligns resource-card visual language with Student Success's card
+     pattern (shadow + radius + hover lift) for sitewide consistency
+   - adds equal-height cards, refined badge, hover interaction
+   - makes the FAQ accordion actually animate open/close + rotate arrow
    ========================================================================== */
 
-/* ---------- Hero ---------- */
-.resources-hero-heading {
-  max-width: 20ch;
-  margin-bottom: var(--space-5);
+/* ---------- Hero (compact variant — no portrait to balance rhythm) ---------- */
+.hero-compact {
+  padding-block-start: var(--space-6);
+  padding-block-end: var(--space-6);
 }
 
-.resources-hero-lede {
+@media (min-width: 900px) {
+  .hero-compact {
+    padding-block-start: var(--space-7);
+    padding-block-end: var(--space-6);
+  }
+}
+
+.resources-hero-content {
+  max-width: 58ch;
+}
+
+.resources-section-heading {
+  margin-bottom: var(--space-5);
+  max-width: 26ch;
+}
+
+/* ---------- Intro ---------- */
+.resources-intro-text {
+  text-align: center;
   font-size: var(--font-size-md);
   color: var(--color-ink-soft);
-  line-height: var(--line-height-snug);
   max-width: 60ch;
-  margin-bottom: var(--space-6);
-}
-
-/* ---------- Section headings ---------- */
-.resources-section-heading {
-  margin-bottom: var(--space-6);
+  margin-inline: auto;
 }
 
 /* ---------- Resource cards ---------- */
 .resources-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-5);
+  align-items: stretch;
 }
 
 @media (min-width: 700px) {
@@ -40,233 +59,188 @@
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1000px) {
   .resources-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Local-only shadow/radius exception, matching the pattern already
+   established by .student-card on Home — kept scoped to this file so
+   the sitewide "no shadow / no radius" default is untouched elsewhere. */
 .resource-card {
+  --card-radius: 16px;
+  --card-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+                 0 12px 32px rgba(28, 27, 25, 0.06);
+  --card-shadow-hover: 0 1px 2px rgba(28, 27, 25, 0.05),
+                       0 20px 44px rgba(28, 27, 25, 0.09);
+
+  position: relative;
+  height: 100%;
+  padding: var(--space-6);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
-  padding: var(--space-6);
-  background-color: var(--color-surface);
-  border: var(--border-width-hairline) solid var(--color-border);
-  border-radius: 14px; /* local exception, see file header */
-  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
-              0 12px 32px rgba(28, 27, 25, 0.05); /* local exception, see file header */
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
 }
 
-.resource-card-icon {
-  width: 32px;
-  height: 32px;
-  margin-bottom: var(--space-4);
+.resource-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-3px);
+}
+
+.resource-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
   color: var(--color-accent-deep);
+  margin-bottom: var(--space-4);
 }
 
-.resource-card-icon svg {
+.resource-icon svg {
   width: 100%;
   height: 100%;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
-.resource-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-bottom: var(--space-3);
-}
-
-.resource-card-badge {
-  flex-shrink: 0;
+.resource-badge {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
   font-size: var(--font-size-xs);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-ink-soft);
-  background-color: var(--color-bg-alt);
-  border: var(--border-width-hairline) solid var(--color-border);
+  letter-spacing: 0.03em;
+  color: var(--color-accent-deep);
+  background-color: var(--color-accent-soft);
+  border: none;
   padding: 3px var(--space-3);
-  border-radius: 999px; /* local exception, see file header */
+  border-radius: 999px; /* local exception — badge pill shape only */
 }
 
-.resource-card-title {
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  color: var(--color-ink);
+.resource-card h3 {
   margin-bottom: var(--space-2);
+  padding-right: var(--space-6);
+  font-size: var(--font-size-md);
 }
 
-.resource-card-text {
-  font-size: var(--font-size-sm);
+.resource-card p {
   color: var(--color-ink-soft);
-  line-height: var(--line-height-body);
-  flex-grow: 1;
+  font-size: var(--font-size-sm);
   margin-bottom: var(--space-5);
+  flex-grow: 1;
 }
 
-/* Coming-soon action is a genuinely disabled control, not a dead link —
-   it does nothing yet, and says so honestly. */
-.resource-card-action {
+.resource-download {
   align-self: flex-start;
 }
 
-/* ---------- Closing CTA ---------- */
-.resources-cta {
-  text-align: center;
+.resource-download:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
-.resources-cta-heading {
-  margin-bottom: var(--space-4);
-}
-
-.resources-cta-text {
-  color: var(--color-ink-soft);
-  max-width: 46ch;
-  margin: 0 auto var(--space-6);
-}
-
-/* ==========================================================================
-   ADDITIONS BELOW — new components for the finalized Resources page.
-   Nothing above this line has been changed. These rules only add classes
-   that didn't exist yet; existing selectors (.resource-card, .resource-card-
-   badge, .resources-grid, etc.) are reused as-is wherever they already fit.
-   ========================================================================== */
-
-/* ---------- Hero actions (two buttons) ---------- */
-.resources-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
-}
-
-/* ---------- Why Free Resources ---------- */
-.resources-why-text {
-  font-size: var(--font-size-md);
-  color: var(--color-ink-soft);
-  line-height: var(--line-height-body);
-  max-width: 62ch;
-  margin-bottom: var(--space-6);
-}
-
-.resources-why-statements {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  max-width: 62ch;
-}
-
-@media (min-width: 600px) {
-  .resources-why-statements {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.resources-why-statement {
-  padding: var(--space-5);
-  border-left: 2px solid var(--color-accent-deep);
-  font-family: var(--font-display);
-  font-size: var(--font-size-lg);
+.resource-download:disabled:hover {
+  background-color: transparent;
   color: var(--color-ink);
-  line-height: var(--line-height-snug);
+  transform: none;
 }
 
-/* ---------- Resource card badge row (category + beginner-friendly) ---------- */
-.resource-card-badges {
+/* ---------- Daily Learning ---------- */
+.resources-daily-cta {
+  margin-top: var(--space-5);
+}
+
+/* ---------- FAQ accordion (native <details>/<summary>) ----------
+   The [open] display:none default on details' children is overridden
+   below so the grid-template-rows transition can actually animate —
+   this is what makes open/close smooth without any JavaScript. */
+.resources-faq-accordion {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
-/* Beginner-friendly is a modifier on the existing .resource-card-badge —
-   same pill shape, distinct accent color so it reads as a different kind
-   of label from the category badge. */
-.resource-card-badge.is-beginner {
-  color: var(--color-accent-deep);
-  background-color: var(--color-accent-soft);
-  border-color: var(--color-accent-deep);
+.resources-faq-item {
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 12px; /* local exception, matches card language above */
+  background-color: var(--color-bg);
+  padding: var(--space-4) var(--space-5);
+  transition: box-shadow var(--duration-base) var(--ease-standard);
 }
 
-/* ---------- Sub-bullet list inside a resource card (used where the
-   original content is itself a list — AI Prompt Library, Content
-   Planning Template — so the exact wording is preserved item-by-item) ---------- */
-.resource-card-list {
+.resources-faq-item[open] {
+  box-shadow: 0 8px 24px rgba(28, 27, 25, 0.05);
+}
+
+.resources-faq-item summary {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  color: var(--color-ink);
+  cursor: pointer;
   list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-5);
-  flex-grow: 1;
+  position: relative;
+  padding-right: var(--space-6);
 }
 
-.resource-card-list li {
-  display: flex;
-  gap: var(--space-2);
-  padding: var(--space-1) 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-ink-soft);
-  line-height: var(--line-height-body);
+.resources-faq-item summary::-webkit-details-marker {
+  display: none;
 }
 
-.resource-card-list li::before {
-  content: "";
-  flex-shrink: 0;
-  width: 5px;
-  height: 5px;
-  margin-top: 8px;
-  border-radius: 50%; /* local exception, see file header */
-  background-color: var(--color-accent-deep);
+.resources-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  transition: transform var(--duration-base) var(--ease-standard);
 }
 
-/* ---------- Weekly Resource Updates band (mirrors the Daily band pattern
-   already established above, without altering it) ---------- */
-.resources-weekly {
-  text-align: center;
+/* Arrow rotates into an "x"/"−" instead of an instant character swap */
+.resources-faq-item[open] summary::after {
+  content: "+";
+  transform: translateY(-50%) rotate(45deg);
 }
 
-.resources-weekly-heading {
-  margin-bottom: var(--space-4);
-}
-
-.resources-weekly-text {
-  color: var(--color-ink-soft);
-  max-width: 52ch;
-  margin: 0 auto;
-}
-
-/* ---------- Coming Soon placeholder cards ---------- */
-.coming-soon-grid {
+/* Animated content — display:grid overrides the native display:none
+   default for closed <details> children, replacing it with a
+   0fr → 1fr grid-row transition that actually animates. */
+.resources-faq-item > .resources-faq-content {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-base) var(--ease-standard);
 }
 
-@media (min-width: 700px) {
-  .coming-soon-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.resources-faq-item[open] > .resources-faq-content {
+  grid-template-rows: 1fr;
 }
 
-@media (min-width: 1100px) {
-  .coming-soon-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.resources-faq-content-inner {
+  overflow: hidden;
 }
 
-.coming-soon-card {
-  padding: var(--space-5);
-  text-align: center;
-  border: 1px dashed var(--color-border-strong);
-  border-radius: 14px; /* local exception, see file header */
-  background-color: var(--color-bg-alt);
-}
-
-.coming-soon-card-title {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+.resources-faq-content-inner p {
+  padding-top: var(--space-3);
   color: var(--color-ink-soft);
-  margin-bottom: var(--space-3);
+}
+
+.resources-faq-item summary:focus-visible {
+  outline: var(--border-width-signature) solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Users who prefer reduced motion get an instant toggle, not a
+   half-animated jump — consistent with the sitewide accessibility.css
+   duration override, applied locally since [open] display swap isn't
+   covered by that global rule for grid-template-rows specifically. */
+@media (prefers-reduced-motion: reduce) {
+  .resources-faq-item > .resources-faq-content,
+  .resources-faq-item summary::after {
+    transition: none;
+  }
 }
