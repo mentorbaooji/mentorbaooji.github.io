@@ -8,7 +8,13 @@
    in student-success.css.
    ========================================================================== */
 
-/* ---------- Hero ---------- */
+/* ---------- Hero ----------
+   Subtle gradient wash, built only from existing tokens (--color-bg-alt /
+   --color-accent-soft) — scoped to this page's hero only. */
+.courses-hero {
+  background: linear-gradient(180deg, var(--color-accent-soft) 0%, transparent 60%);
+}
+
 .courses-hero-heading {
   max-width: 22ch;
   margin-bottom: var(--space-5);
@@ -26,6 +32,83 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+/* ---------- Hero quick facts ----------
+   Surfaces Fee / Duration / AI / Support / Level immediately, so the
+   most important decision-making facts don't require reading paragraphs
+   to find. */
+.courses-hero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 700px) {
+  .courses-hero-facts {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.hero-fact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-width-hairline) solid var(--color-border);
+  border-radius: 14px; /* local exception, see file header */
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+              0 12px 32px rgba(28, 27, 25, 0.06); /* local exception, see file header */
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.hero-fact:hover {
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.05),
+              0 20px 44px rgba(28, 27, 25, 0.09); /* local exception, see file header */
+  transform: translateY(-3px);
+}
+
+.hero-fact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px; /* local exception, see file header */
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
+  color: var(--color-bg);
+}
+
+.hero-fact-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-fact-value {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  color: var(--color-ink);
+  line-height: var(--line-height-tight);
+}
+
+.hero-fact-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-faint);
 }
 
 /* ---------- Shared section heading ---------- */
@@ -59,10 +142,42 @@
 }
 
 .why-card {
-  padding: var(--space-6);
+  padding: var(--space-7) var(--space-6);
   background-color: var(--color-surface);
   border: var(--border-width-hairline) solid var(--color-border);
   border-radius: 14px; /* local exception, see file header */
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+              0 12px 32px rgba(28, 27, 25, 0.06); /* local exception, see file header */
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.why-card:hover {
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.05),
+              0 20px 44px rgba(28, 27, 25, 0.09); /* local exception, see file header */
+  transform: translateY(-3px);
+}
+
+.why-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-4);
+  border-radius: 12px; /* local exception, see file header */
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-bg-alt));
+  color: var(--color-accent-deep);
+}
+
+.why-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .why-card-title {
@@ -93,19 +208,49 @@
 }
 
 .path-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: var(--space-6);
+  padding: var(--space-7) var(--space-6) var(--space-6);
   background-color: var(--color-surface);
   border: var(--border-width-hairline) solid var(--color-border);
   border-radius: 16px; /* local exception, see file header */
+  overflow: hidden;
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.path-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-deep));
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.path-card:hover {
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.05),
+              0 20px 44px rgba(28, 27, 25, 0.09); /* local exception, see file header */
+  transform: translateY(-3px);
+}
+
+.path-card:hover::before {
+  opacity: 1;
 }
 
 .path-card.is-featured {
   border-color: var(--color-accent-deep);
   box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
               0 16px 36px rgba(28, 27, 25, 0.07); /* local exception, see file header */
+}
+
+.path-card.is-featured::before {
+  opacity: 1;
 }
 
 .path-card-badge {
@@ -115,8 +260,8 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-bg);
-  background-color: var(--color-accent-deep);
-  padding: 3px var(--space-3);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
+  padding: 4px var(--space-3);
   border-radius: 999px; /* local exception, see file header */
   margin-bottom: var(--space-4);
 }
@@ -128,7 +273,8 @@
 
 .path-card-price {
   font-family: var(--font-display);
-  font-size: var(--font-size-xl);
+  font-size: calc(var(--font-size-xl) * 1.15);
+  font-weight: 600;
   color: var(--color-accent-deep);
   line-height: var(--line-height-tight);
 }
@@ -148,7 +294,8 @@
 
 .path-card-features li {
   display: flex;
-  gap: var(--space-2);
+  align-items: center;
+  gap: var(--space-3);
   padding: var(--space-2) 0;
   font-size: var(--font-size-sm);
   color: var(--color-ink-soft);
@@ -160,13 +307,18 @@
 }
 
 .path-card-features li::before {
-  content: "";
+  content: "\2713";
   flex-shrink: 0;
-  width: 6px;
-  height: 6px;
-  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   border-radius: 50%; /* local exception, see file header */
-  background-color: var(--color-accent-deep);
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-bg-alt));
+  color: var(--color-accent-deep);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .path-card-action {
@@ -187,10 +339,42 @@
 }
 
 .program-card {
-  padding: var(--space-6);
+  padding: var(--space-7) var(--space-6);
   background-color: var(--color-surface);
   border: var(--border-width-hairline) solid var(--color-border);
   border-radius: 14px; /* local exception, see file header */
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+              0 12px 32px rgba(28, 27, 25, 0.06); /* local exception, see file header */
+  transition: box-shadow var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.program-card:hover {
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.05),
+              0 20px 44px rgba(28, 27, 25, 0.09); /* local exception, see file header */
+  transform: translateY(-3px);
+}
+
+.program-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-4);
+  border-radius: 12px; /* local exception, see file header */
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-bg-alt));
+  color: var(--color-accent-deep);
+}
+
+.program-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .program-card-title {
@@ -244,6 +428,15 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--color-ink);
+  transition: border-color var(--duration-base) var(--ease-standard),
+              color var(--duration-base) var(--ease-standard),
+              background-color var(--duration-base) var(--ease-standard);
+}
+
+.ai-chip:hover {
+  border-color: var(--color-accent-deep);
+  color: var(--color-accent-deep);
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-bg-alt));
 }
 
 /* ---------- Comparison table ---------- */
@@ -280,7 +473,11 @@
   font-family: var(--font-display);
   font-size: var(--font-size-base);
   color: var(--color-ink);
-  background-color: var(--color-bg-alt);
+  background: linear-gradient(180deg, var(--color-bg-alt), var(--color-surface));
+}
+
+.comparison-table thead th.is-col-featured {
+  color: var(--color-accent-deep);
 }
 
 .comparison-table tbody th {
@@ -291,6 +488,21 @@
 
 .comparison-table tbody td {
   color: var(--color-ink-soft);
+}
+
+.comparison-table td.is-col-featured {
+  background-color: var(--color-accent-soft);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.comparison-table tbody tr:hover td,
+.comparison-table tbody tr:hover th {
+  background-color: var(--color-bg-alt);
+}
+
+.comparison-table tbody tr:hover td.is-col-featured {
+  background-color: var(--color-accent-soft);
 }
 
 .comparison-table tbody tr:last-child th,
@@ -312,16 +524,36 @@
 }
 
 .journey-step {
-  padding-top: var(--space-5);
-  border-top: var(--border-width-hairline) solid var(--color-border);
+  padding-top: var(--space-6);
+  border-top: 2px solid var(--color-border);
+  position: relative;
+}
+
+.journey-step::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-deep));
 }
 
 .journey-step-week {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--space-3);
+  margin-bottom: var(--space-4);
+  border-radius: 999px; /* local exception, see file header */
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
   font-family: var(--font-display);
-  font-size: var(--font-size-lg);
-  color: var(--color-accent-deep);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-bg);
   line-height: 1;
-  margin-bottom: var(--space-3);
 }
 
 .journey-step-title {
@@ -585,9 +817,13 @@
   margin-bottom: var(--space-6);
 }
 
-/* ---------- Final CTA ---------- */
+/* ---------- Final CTA ----------
+   Gradient band built only from existing tokens, scoped to this section. */
 .final-cta {
   text-align: center;
+  padding-top: var(--space-9, var(--space-8));
+  padding-bottom: var(--space-9, var(--space-8));
+  background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-accent-soft) 100%);
 }
 
 .final-cta-heading {
